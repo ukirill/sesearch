@@ -17,6 +17,9 @@ import java.util.List;
 public class StackExchangeService {
 
     private static String filterKey = "!5-dqr-cjd1-P)uV08dtYmzy4231UGRs8hOybx*";
+    private static  String defaultOrder = "desc";
+    private static  String defaultSite = "stackoverflow";
+    private static String apiUrl = "http://api.stackexchange.com/2.2/search";
 
     public StackExchangeResponse search(StackExchangeRequest req) {
         Client client = ClientBuilder.newClient();
@@ -24,11 +27,11 @@ public class StackExchangeService {
                 .register(GZipEncoder.class)
                 .register(EncodingFilter.class)
                 .register(JacksonFeature.class)
-                .target("http://api.stackexchange.com/2.2/search")
-                .queryParam("site", "stackoverflow")
+                .target(apiUrl)
+                .queryParam("site", defaultSite)
                 .queryParam("intitle", req.searchString)
                 .queryParam("sort", req.sortField)
-                .queryParam("order", "desc")
+                .queryParam("order", defaultOrder)
                 .queryParam("filter", filterKey);
         if (req.pageNum > 1) {
             target = target.queryParam("page", req.pageNum);

@@ -61,10 +61,10 @@
     $(document).ready(function() {
         var pagenum = 1;
         var pagesize = 30;
-        var hasmore = $.parseJSON($(".hasmore").last().val());
+        var hasmore = $(".hasmore").last().val();
         $contentLoadTriggered = false;
         $(window).scroll(function(){
-            if($(window).scrollTop() > $(document).height() - window.innerHeight - 30 && !$contentLoadTriggered && hasmore)
+            if($(window).scrollTop() > $(document).height() - window.innerHeight - 30 && !$contentLoadTriggered && hasmore !== "false")
             {
                 debugger;
                 $contentLoadTriggered = true;
