@@ -1,6 +1,6 @@
 # sesearch
 
-Small demo Java Web App to looking around Stack Overflow. 
+Small demo Java Web App to look around Stack Overflow. 
 - Built using Java 8, JSP, embedded Tomcat 7, Bootstrap 4 and JQuery 3.
 - Endless scroll
 - Optional sort by _Creation date_ or _Votes_
